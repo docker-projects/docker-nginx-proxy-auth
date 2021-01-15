@@ -50,6 +50,23 @@ server accepts handled requests
 Reading: 0 Writing: 1 Waiting: 0
 ```
 
+## Docker-compose
+```
+version: '2'
+services:
+  web:
+    image: ugeek/nginx-proxy:arm
+  nginx:
+    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
+    ports:
+      - 8080:80
+      - 8090:8090
+    environment:
+      - BASIC_AUTH_USERNAME=username
+      - BASIC_AUTH_PASSWORD=password
+      - PROXY_PASS=http://web/
+```      
+
 ## Environment variables
 
 ### Required
