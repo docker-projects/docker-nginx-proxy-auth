@@ -55,11 +55,11 @@ Reading: 0 Writing: 1 Waiting: 0
 version: '2'
 services:
   web:
-    image: ugeek/nginx-proxy:arm
+    image: nginx-proxy
   nginx:
-    image: quay.io/dtan4/nginx-basic-auth-proxy:latest
+    image: ugeek/nginx-proxy:arm
     ports:
-      - 8080:80
+      - 8081:80
       - 8090:8090
     environment:
       - BASIC_AUTH_USERNAME=username
